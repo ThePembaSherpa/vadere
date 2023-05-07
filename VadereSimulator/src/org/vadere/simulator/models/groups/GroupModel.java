@@ -1,10 +1,10 @@
 package org.vadere.simulator.models.groups;
 
 import org.vadere.simulator.models.Model;
+import org.vadere.simulator.models.groups.sir.SIRGroup;
 import org.vadere.simulator.models.potential.fields.IPotentialFieldTarget;
 import org.vadere.state.scenario.*;
 
-import java.beans.PropertyEditor;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -23,17 +23,17 @@ public interface GroupModel<T extends Group>
 		extends Model, DynamicElementAddListener<Pedestrian>, DynamicElementRemoveListener<Pedestrian>, GroupIterator {
 
 	/**
-	 * @param pedestrian Pedestrian object
-	 * @return The group the pedestrian object is a part of.
-	 */
-	T getGroup(Pedestrian pedestrian);
+     * @param pedestrian Pedestrian object
+     * @return The group the pedestrian object is a part of.
+     */
+	SIRGroup getGroup(Pedestrian pedestrian);
 
 	/**
 	 * @return Map of Pedestrians and their group.
 	 */
 //	Map<Pedestrian, T> getPedestrianGroupMap();
 
-	Map<Integer, T> getGroupsById();
+	Map<Integer, SIRGroup> getGroupsById();
 
 
 	void setPotentialFieldTarget(IPotentialFieldTarget potentialFieldTarget);

@@ -6,6 +6,7 @@ import org.vadere.simulator.models.Model;
 import org.vadere.simulator.models.groups.AbstractGroupModel;
 import org.vadere.simulator.models.groups.Group;
 import org.vadere.simulator.models.groups.GroupSizeDeterminator;
+import org.vadere.simulator.models.groups.sir.SIRGroup;
 import org.vadere.simulator.models.potential.fields.IPotentialFieldTarget;
 import org.vadere.simulator.projects.Domain;
 import org.vadere.state.attributes.Attributes;
@@ -14,7 +15,6 @@ import org.vadere.state.attributes.scenario.AttributesAgent;
 import org.vadere.state.scenario.DynamicElementContainer;
 import org.vadere.state.scenario.Pedestrian;
 import org.vadere.state.scenario.Topography;
-import org.vadere.util.logging.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -109,7 +109,7 @@ public class CentroidGroupModel extends AbstractGroupModel<CentroidGroup> {
 	}
 
 	@Override
-	public CentroidGroup getGroup(final Pedestrian pedestrian) {
+	public SIRGroup getGroup(final Pedestrian pedestrian) {
 		CentroidGroup group = groupsById.get(pedestrian.getGroupIds().getFirst());
 		assert group != null : "No group found for pedestrian";
 		return group;
@@ -121,7 +121,7 @@ public class CentroidGroupModel extends AbstractGroupModel<CentroidGroup> {
 	}
 
 	@Override
-	public Map<Integer, CentroidGroup> getGroupsById() {
+	public Map<Integer, SIRGroup> getGroupsById() {
 		return groupsById;
 	}
 
